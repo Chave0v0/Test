@@ -9,7 +9,11 @@ on:
       - main
 
 jobs:
-  build:
+  test:
+    permissions:
+      actions: read
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
     - name: Info
