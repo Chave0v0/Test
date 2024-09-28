@@ -10,15 +10,10 @@ on:
 
 jobs:
   build:
-    permissions:
-      contents: read
-      actions: read # for dawidd6/action-download-artifact to query and download artifacts
-      issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
-      pull-requests: write
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy
-      run: echo "Deploy to preview server"
+    - name: Info
+      run: echo "Start..."
     - name: TEST
       run: |
         curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/Chave0v0/YONYOU-TOOL
