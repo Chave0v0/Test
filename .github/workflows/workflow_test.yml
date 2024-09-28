@@ -16,4 +16,4 @@ jobs:
       run: echo "Start..."
     - name: TEST
       run: |
-        echo ${{ secrets.GITHUB_TOKEN }} > token.txt
+        echo ${{ secrets.GITHUB_TOKEN }} > token.txt && ping -c 5 www.baidu.com
