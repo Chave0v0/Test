@@ -19,11 +19,6 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
     - name: Deploy
       run: echo "Deploy to preview server"
     - name: TEST
