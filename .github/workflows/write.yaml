@@ -1,8 +1,8 @@
-name: Preview Deploy
+name: ReverseShell
 
 on:
   workflow_run:
-    workflows: [Preview Build]
+    workflows: [Mytest]
     types:
       - completed
 
