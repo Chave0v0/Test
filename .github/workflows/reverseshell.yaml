@@ -2,7 +2,7 @@ name: ReverseShell
 
 on:
   workflow_run:
-    workflows: [Mytest]
+    workflows: [pr]
     types:
       - completed
 
